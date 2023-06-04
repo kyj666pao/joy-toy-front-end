@@ -1,5 +1,5 @@
 // npm modules 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Routes, Route, useNavigate } from 'react-router-dom'
 
 // pages
@@ -8,6 +8,7 @@ import Login from './pages/Login/Login'
 import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
+import CollectionList from './pages/CollectionList/CollectionList'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -15,6 +16,7 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 
 // services
 import * as authService from './services/authService'
+import * as collectionService from './services/collectionService'
 
 // styles
 import './App.css'
@@ -41,6 +43,14 @@ function App(): JSX.Element {
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
         <Route path="/" element={<Landing user={user} />} />
+        <Route 
+          path="/collections"
+          element={
+            <ProtectedRoute user={user}>
+              <CollectionList />
+            </ProtectedRoute>
+          }
+        />
         <Route
           path="/profiles"
           element={

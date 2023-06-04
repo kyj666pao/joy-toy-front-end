@@ -1,6 +1,17 @@
 /* ---------===== custom props ====--------- */
 
-
+export interface Collection {
+  title: string,
+  img?: string,
+  description?: string,
+  type?: string,
+  category?: string,
+  series?: string,
+  brand?: string,
+  profileId: number,
+  createdAt: string;
+  updatedAt: string;
+}
 
 /* ---------===== auth models =====--------- */
 
