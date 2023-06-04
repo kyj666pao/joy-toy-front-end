@@ -6,7 +6,7 @@ import { Collection } from '../types/models'
 
 const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/api/collections`
 
-async function index(): Promise<Collection[]> {
+const index = async(): Promise<Collection[]> => {
     try {
         const res = await fetch(BASE_URL, {
             headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
@@ -17,6 +17,18 @@ async function index(): Promise<Collection[]> {
     }
 }
 
+const show = async(collectionId: number): Promise<Collection> => {
+    try {
+        const res = await fetch(`${BASE_URL}/${collectionId}`, {
+            headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
+        })
+        return await res.json() as Collection
+    } catch (error) {
+        throw error
+    }
+}
+
 export {
     index,
+    show,
 }
