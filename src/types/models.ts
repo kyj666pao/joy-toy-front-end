@@ -1,6 +1,7 @@
 /* ---------===== custom props ====--------- */
 
 export interface Collection {
+  id: number
   title: string,
   img?: string,
   description?: string,

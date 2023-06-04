@@ -4,13 +4,23 @@ import styles from './CollectionList.module.css'
 //types
 import { Collection } from '../../types/models'
 
-import React from 'react'
+interface CollectionsProps {
+    collections: Collection[]
+}
 
-const CollectionList = () => {
+
+const CollectionList = (props: CollectionsProps) => {
+    const { collections } = props
+
   return (
-    <div className={styles.container}>
+    <main className={styles.container}>
         <h2>Collection List</h2>
-    </div>
+        {collections.map((collection: Collection) => (
+            <div key={collection.id}>
+                {collection.title}
+            </div>
+        ))}
+    </main>
   )
 }
 

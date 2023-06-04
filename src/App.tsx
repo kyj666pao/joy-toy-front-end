@@ -22,10 +22,11 @@ import * as collectionService from './services/collectionService'
 import './App.css'
 
 // types
-import { User } from './types/models'
+import { User, Profile, Collection } from './types/models'
 
 function App(): JSX.Element {
   const [user, setUser] = useState<User | null>(authService.getUser())
+  const [collectionList, setCollectionList] = useState<Collection[]>([]);
   const navigate = useNavigate()
   
   const handleLogout = (): void => {
@@ -38,6 +39,15 @@ function App(): JSX.Element {
     setUser(authService.getUser())
   }
 
+  useEffect((): void => {
+    const fetchAllCollection = async (): Promise<void> => {
+      const collectionData: Collection[] = await collectionService.index()
+      console.log(collectionData)
+      setCollectionList(collectionData)
+    }
+    fetchAllCollection()
+  }, []);
+
   return (
     <>
       <NavBar user={user} handleLogout={handleLogout} />
@@ -47,7 +57,7 @@ function App(): JSX.Element {
           path="/collections"
           element={
             <ProtectedRoute user={user}>
-              <CollectionList />
+              <CollectionList collections={collectionList} />
             </ProtectedRoute>
           }
         />
