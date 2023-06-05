@@ -1,6 +1,13 @@
 /* ---------==== custom forms ====--------- */
 
-
+export interface collectionFormData {
+  title: string,
+  description?: string,
+  type?: string,
+  category?: string,
+  series?: string,
+  brand?: string
+}
 
 /* ---------===== auth forms =====--------- */
 
