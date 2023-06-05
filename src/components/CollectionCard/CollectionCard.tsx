@@ -15,7 +15,7 @@ interface CollectionProps {
 const CollectionCard = (props: CollectionProps) => {
     const { collection } = props
   return (
-    <Link to={`/collection/${collection.id}`}>
+    <Link to={`/collections/${collection.id}`}>
       <div className={styles.container}>
           <h2>{collection.title}</h2>
           <img src={collection.img} alt="" />

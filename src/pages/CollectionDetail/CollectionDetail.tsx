@@ -10,23 +10,38 @@ import { User, Collection } from '../../types/models'
 //service
 import * as collectionService from '../../services/collectionService'
 
+interface CollectionProps {
+    user: User | null
+}
 
-
-const CollectionDetail = () => {
+const CollectionDetail = (props: CollectionProps) => {
+    const { user } = props
     const { collectionId } = useParams<{collectionId?: string}>()
     const [collection, setCollection] = useState<Collection | null>(null);
+    
 
     useEffect((): void => {
+        console.log(collectionId)
         const fetchCollection = async (): Promise<void> => {
             const Data: Collection = await collectionService.show(collectionId)
             setCollection(Data)
         }
         fetchCollection()
+        console.log(collection)
     }, [collectionId]);
+    
 
   return (
     <main className={styles.container}>
-        CollectionDetail
+        {collection && 
+        <div>
+            <h2>{ collection.title }</h2>
+            <img src={collection.img} alt="" />
+            <h4>{ collection.description }</h4>
+        </div>
+        
+        }
+        
     </main>
   )
 }
