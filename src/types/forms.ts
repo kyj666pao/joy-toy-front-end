@@ -1,6 +1,6 @@
 /* ---------==== custom forms ====--------- */
 
-export interface collectionFormData {
+export interface CollectionFormData {
   title: string,
   description?: string,
   type?: string,

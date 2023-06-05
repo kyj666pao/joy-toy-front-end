@@ -10,6 +10,7 @@ import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import CollectionList from './pages/CollectionList/CollectionList'
 import CollectionDetail from './pages/CollectionDetail/CollectionDetail'
+import CreateForm from './pages/CreateForm/CreateForm'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -24,10 +25,12 @@ import './App.css'
 
 // types
 import { User, Profile, Collection } from './types/models'
+import { CollectionFormData } from './types/forms'
 
 function App(): JSX.Element {
   const [user, setUser] = useState<User | null>(authService.getUser())
   const [collectionList, setCollectionList] = useState<Collection[]>([]);
+  // const [collectionListLength, setCollectionListLength] = useState(collectionList.length);
   const navigate = useNavigate()
   
   const handleLogout = (): void => {
@@ -40,7 +43,11 @@ function App(): JSX.Element {
     setUser(authService.getUser())
   }
 
-
+  // const handleAddCollection = async (
+  //   collectionFormData: collectionFormData
+  //   ): Promise<void> => {
+  //     const newCollection = await collectionService.create(collectionFormData)
+  // }
 
   useEffect((): void => {
     const fetchAllCollection = async (): Promise<void> => {
@@ -56,6 +63,14 @@ function App(): JSX.Element {
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
         <Route path="/" element={<Landing user={user} />} />
+        <Route 
+          path="/collections/new"
+          element={
+            <ProtectedRoute user={user}>
+              <CreateForm />
+            </ProtectedRoute>
+          }
+        />
         <Route 
           path="/collections"
           element={
