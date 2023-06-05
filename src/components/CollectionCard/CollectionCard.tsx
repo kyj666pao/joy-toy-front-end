@@ -1,3 +1,6 @@
+// npm modules
+import { Link } from 'react-router-dom'
+
 //css
 import styles from './CollectionCard.module.css'
 
@@ -12,10 +15,13 @@ interface CollectionProps {
 const CollectionCard = (props: CollectionProps) => {
     const { collection } = props
   return (
-    <div className={styles.container}>
-        <h2>{collection.title}</h2>
-        <img src={collection.img} alt="" />
-    </div>
+    <Link to={`/collection/${collection.id}`}>
+      <div className={styles.container}>
+          <h2>{collection.title}</h2>
+          <img src={collection.img} alt="" />
+      </div>
+    </Link>
+    
   )
 }
 

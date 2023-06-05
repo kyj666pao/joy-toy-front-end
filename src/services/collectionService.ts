@@ -17,7 +17,7 @@ const index = async(): Promise<Collection[]> => {
     }
 }
 
-const show = async(collectionId: number): Promise<Collection> => {
+const show = async(collectionId: string | undefined): Promise<Collection> => {
     try {
         const res = await fetch(`${BASE_URL}/${collectionId}`, {
             headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },

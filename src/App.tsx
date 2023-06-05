@@ -9,6 +9,7 @@ import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import CollectionList from './pages/CollectionList/CollectionList'
+import CollectionDetail from './pages/CollectionDetail/CollectionDetail'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -39,6 +40,8 @@ function App(): JSX.Element {
     setUser(authService.getUser())
   }
 
+
+
   useEffect((): void => {
     const fetchAllCollection = async (): Promise<void> => {
       const collectionData: Collection[] = await collectionService.index()
@@ -58,6 +61,14 @@ function App(): JSX.Element {
           element={
             <ProtectedRoute user={user}>
               <CollectionList collections={collectionList} />
+            </ProtectedRoute>
+          }
+        />
+        <Route 
+          path="/collections/:collectionId"
+          element={
+            <ProtectedRoute user={user}>
+              <CollectionDetail user={user} />
             </ProtectedRoute>
           }
         />
