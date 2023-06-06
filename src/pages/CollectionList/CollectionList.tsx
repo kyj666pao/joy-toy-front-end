@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 //css
@@ -16,26 +15,27 @@ import * as collectionService from '../../services/collectionService'
 
 interface CollectionsProps {
     collections: Collection[]
-    user: User | null;
+    user: User | null
+    updated: number,
+    setUpdated: (value: number) => void
 }
 
 const CollectionList = (props: CollectionsProps) => {
+    const { collections, user, updated, setUpdated } = props
     const navigate = useNavigate()
-    const { collections, user } = props
+
 
     const handleDeleteCollection = async(evt: React.MouseEvent, collectionId: number): Promise<void> => {
         evt.preventDefault()
         try {
             await collectionService.delete(collectionId)
-            navigate('/' )
+            setUpdated(updated + 1)
+            navigate('/collections' )
         } catch (error) {
             console.log(error)
         }
     }
 
-    // useEffect(() => {
-    //     console.log(collections)
-    // }, [collections]);
 
   return (
     <main className={styles.container}>
