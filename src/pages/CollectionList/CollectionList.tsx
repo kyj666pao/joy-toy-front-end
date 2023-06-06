@@ -2,18 +2,19 @@
 import styles from './CollectionList.module.css'
 
 //types
-import { Collection } from '../../types/models'
+import { Collection, User } from '../../types/models'
 
 //components
 import CollectionCard from '../../components/CollectionCard/CollectionCard'
 
 interface CollectionsProps {
     collections: Collection[]
+    user: User | null;
 }
 
 
 const CollectionList = (props: CollectionsProps) => {
-    const { collections } = props
+    const { collections, user } = props
 
   return (
     <main className={styles.container}>
@@ -22,6 +23,7 @@ const CollectionList = (props: CollectionsProps) => {
             <CollectionCard 
                 key={collection.id}
                 collection={collection}
+                user={user}
             />
         ))}
     </main>

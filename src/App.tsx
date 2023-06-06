@@ -11,6 +11,7 @@ import ChangePassword from './pages/ChangePassword/ChangePassword'
 import CollectionList from './pages/CollectionList/CollectionList'
 import CollectionDetail from './pages/CollectionDetail/CollectionDetail'
 import CreateForm from './pages/CreateForm/CreateForm'
+import EditForm from './pages/EditForm/EditForm'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -75,7 +76,7 @@ function App(): JSX.Element {
           path="/collections"
           element={
             <ProtectedRoute user={user}>
-              <CollectionList collections={collectionList} />
+              <CollectionList collections={collectionList} user={user}/>
             </ProtectedRoute>
           }
         />
@@ -84,6 +85,14 @@ function App(): JSX.Element {
           element={
             <ProtectedRoute user={user}>
               <CollectionDetail user={user} />
+            </ProtectedRoute>
+          }
+        />
+        <Route 
+          path="/collections/:collectionId/edit"
+          element={
+            <ProtectedRoute user={user}>
+              <EditForm />
             </ProtectedRoute>
           }
         />

@@ -14,10 +14,8 @@ const addCollectionPhoto = async (
     ): Promise<string> => {
         if (!photoData.photo) throw new Error("No photo found.")
 
-        console.log("4---photoData---", photoData)
         const imgData = new FormData()
         imgData.append('img', photoData.photo)
-        console.log("5---",imgData)
         try {
             const res = await fetch(`${BASE_URL}/${collectionId}/add-photo`, {
                 method: 'PUT',
@@ -26,7 +24,6 @@ const addCollectionPhoto = async (
                 },
                 body: imgData
             })
-            console.log("---res---",res.json)
             return await res.json() as string
         } catch (error) {
             throw error
@@ -48,7 +45,6 @@ const create = async(
                 body: JSON.stringify(collectionFormData)
             })
             const collection = await res.json()
-            console.log("3---id", collection.id)
 
             if (photoData.photo) {
                 await addCollectionPhoto(collection.id , photoData)

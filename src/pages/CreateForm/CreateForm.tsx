@@ -34,17 +34,14 @@ const CreateForm = () => {
       setFormData({ ...formData, [evt.target.name]: evt.target.value })
     }
 
-    //-----------1-----------
+    
     const handleChangePhoto = (evt: React.ChangeEvent<HTMLInputElement>) => {
       if (!evt.target.files) return
       const file = evt.target.files[0]
-      console.log("file",file)
       let isFileInvalid = false
       let errMsg = ""
       const validFormats = ['gif', 'jpeg', 'jpg', 'png', 'svg', 'webp']
       const photoFormat = file.name.split('.').at(-1)
-      console.log(photoFormat)
-      // cloudinary supports files up to 10.4MB each as of May 2023
       if (file.size >= 10485760) {
         errMsg = "Image must be smaller than 10.4MB"
         isFileInvalid = true
@@ -62,7 +59,6 @@ const CreateForm = () => {
       }
   
       setPhotoData({ photo: evt.target.files[0] })
-      console.log(photoData)
     }
 
     const {
@@ -74,13 +70,11 @@ const CreateForm = () => {
       brand,
     } = formData
 
-    //---------2----------
     const handleSubmit = async (evt: React.FormEvent): Promise<void> => {
         evt.preventDefault()
         if (isSubmitted) return
         try {
           setIsSubmitted(true)
-          console.log("+++check photo data:",formData, photoData)
           await collectionService.create(formData, photoData)
           navigate('/collections')
         } catch (error) {
