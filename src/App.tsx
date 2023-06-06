@@ -31,6 +31,7 @@ function App(): JSX.Element {
   const [user, setUser] = useState<User | null>(authService.getUser())
   const [collectionList, setCollectionList] = useState<Collection[]>([]);
   const navigate = useNavigate()
+  const [updated, setUpdated] = useState<number>(0);
   
   const handleLogout = (): void => {
     authService.logout()
@@ -49,7 +50,7 @@ function App(): JSX.Element {
       setCollectionList(collectionData)
     }
     fetchAllCollection()
-  }, []);
+  }, [updated]);
 
   return (
     <>
@@ -84,7 +85,9 @@ function App(): JSX.Element {
           path="/collections/:collectionId/edit"
           element={
             <ProtectedRoute user={user}>
-              <EditForm />
+              <EditForm 
+                updated={updated}
+                setUpdated={setUpdated} />
             </ProtectedRoute>
           }
         />

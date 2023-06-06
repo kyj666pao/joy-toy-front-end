@@ -10,7 +10,13 @@ import * as collectionService from '../../services/collectionService'
 //types
 import { PhotoFormData } from '../../types/forms'
 
-const EditForm = () => {
+interface EditFromPorps {
+    updated: number,
+    setUpdated: (value: number) => void
+}
+
+const EditForm = (props: EditFromPorps) => {
+    const { updated, setUpdated } = props
     const navigate = useNavigate()
     const imgInputRef = useRef<HTMLInputElement | null>(null)
 
@@ -59,6 +65,7 @@ const EditForm = () => {
         try {
             setIsSubmitted(true)
             await collectionService.update(formData.id, formData, photoData)
+            setUpdated(updated + 1)
             navigate('/collections')
         } catch (error) {
             console.log(error)
