@@ -24,13 +24,10 @@ const EditForm = (props: EditFromPorps) => {
     console.log("state",state)
     const [formData, setFormData] = useState(state)
 
-    // useEffect(() => {
-    //     console.log("formData",formData)
-    // }, [formData]);
-
     const [photoData, setPhotoData] = useState<PhotoFormData>({ photo: null })
     const [isSubmitted, setIsSubmitted] = useState(false)
     const [message, setMessage] = useState('')
+    const [imgPreview, setImgPreview] = useState<string | undefined>(formData.img);
 
     const handleChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
         setFormData({ ...formData, [evt.target.name]: evt.target.value })
@@ -57,6 +54,13 @@ const EditForm = (props: EditFromPorps) => {
           return
         }
         setPhotoData({ photo: evt.target.files[0] })
+
+        const reader = new FileReader()
+        reader.readAsDataURL(evt.target.files[0])
+        reader.onload = () => {
+            const imgTempDir = reader.result as string
+            setImgPreview(imgTempDir)
+        }
     }
 
     const handleSubmit = async (evt: React.FormEvent): Promise<void> => {
@@ -95,6 +99,7 @@ const EditForm = (props: EditFromPorps) => {
                 <input type="text" name="title" value={title} onChange={handleChange} required/>
             </label>
 
+            { imgPreview && <img src={imgPreview} alt="" /> }
             <label className={styles.label}>
               Upload Photo
               <input type="file" name="photo" onChange={handleChangePhoto} ref={imgInputRef}
