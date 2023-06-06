@@ -1,8 +1,25 @@
 .container {
-    width: 300px;
+    width: 70%;
     margin: 8px;
     display: flex;
     align-items: center;
     flex-direction: column;
     border: 2px solid red;
+    text-align: center;
+}
+
+.img {
+    width: 95%;
+    height: fit-content;
+}
+
+.img:hover {
+    width: 100%;
+    height: fit-content;
+}
+
+.userThings {
+    align-self: flex-end;
+    display: flex;
+    padding: 6px;
 }

@@ -25,7 +25,7 @@ import * as collectionService from './services/collectionService'
 import './App.css'
 
 // types
-import { User, Profile, Collection } from './types/models'
+import { User, Collection } from './types/models'
 
 function App(): JSX.Element {
   const [user, setUser] = useState<User | null>(authService.getUser())

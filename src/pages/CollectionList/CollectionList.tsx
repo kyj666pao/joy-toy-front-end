@@ -39,7 +39,6 @@ const CollectionList = (props: CollectionsProps) => {
 
   return (
     <main className={styles.container}>
-        <h2>Collection List</h2>
         {collections.map((collection: Collection) => (
             <CollectionCard 
                 key={collection.id}

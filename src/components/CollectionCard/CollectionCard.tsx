@@ -25,10 +25,10 @@ const CollectionCard = (props: CollectionProps) => {
           <Link to={`/collections/${collection.id}`}>
             <h2>{collection.title}</h2>
           </Link>
-          <img src={collection.img} alt="" />
+          <img className={styles.img} src={collection.img} alt="" />
         </div>
         { user?.profile.id == collection.profileId && 
-          <div className="userThings">
+          <div className={styles.userThings}>
             <div className="edit">
               <Link to={`/collections/${collection.id}/edit`} state={collection}>
               Edit

@@ -107,7 +107,10 @@ const CreateForm = (props: CreateFromPorps) => {
         <h2>Add Collection</h2>
         <p>{message}</p>
         <form autoComplete='off' onSubmit={handleSubmit} className={styles.form} >
-            <label htmlFor="title">Title
+          <div className={styles.line}>
+            
+          </div>
+            <label className={styles.label} htmlFor="title">Title
                 <input type="text" name="title" value={title} onChange={handleChange} required/>
             </label>
 
@@ -118,23 +121,23 @@ const CreateForm = (props: CreateFromPorps) => {
               />
             </label>
 
-            <label htmlFor="description">Description
+            <label className={styles.label} htmlFor="description">Description
                 <input type="text" value={description} name='description' onChange={handleChange}  />
             </label>
 
-            <label htmlFor="type">Type
+            <label className={styles.label} htmlFor="type">Type
                 <input type="text" value={type} name='type' onChange={handleChange}  />
             </label>
 
-            <label htmlFor="category">Category
+            <label className={styles.label} htmlFor="category">Category
                 <input type="text" value={category} name='category' onChange={handleChange}  />
             </label>
 
-            <label htmlFor="series">Series
+            <label className={styles.label} htmlFor="series">Series
                 <input type="text" value={series} name='series' onChange={handleChange}  />
             </label>
 
-            <label htmlFor="brand">Brand
+            <label className={styles.label} htmlFor="brand">Brand
                 <input type="text" value={brand} name='brand' onChange={handleChange}  />
             </label>
 
