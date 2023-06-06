@@ -26,7 +26,6 @@ import './App.css'
 
 // types
 import { User, Profile, Collection } from './types/models'
-import { CollectionFormData } from './types/forms'
 
 function App(): JSX.Element {
   const [user, setUser] = useState<User | null>(authService.getUser())

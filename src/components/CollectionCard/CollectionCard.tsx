@@ -10,11 +10,12 @@ import { Collection, User } from '../../types/models'
 interface CollectionProps {
     collection: Collection
     user: User | null
+    handleDeleteCollection: (evt: React.MouseEvent, collectionId: number)=> void
 }
 
 
 const CollectionCard = (props: CollectionProps) => {
-    const { collection, user } = props
+    const { collection, user, handleDeleteCollection } = props
 
     // console.log("id:",user?.profile.id, typeof user?.profile.id)
   return (
@@ -33,7 +34,7 @@ const CollectionCard = (props: CollectionProps) => {
               Edit
               </Link>
             </div>
-            <button>delete</button>
+            <button onClick={(evt) => handleDeleteCollection(evt, collection.id)}>delete</button>
           </div>
         }
         

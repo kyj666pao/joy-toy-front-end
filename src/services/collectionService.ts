@@ -94,7 +94,22 @@ const update = async(
         } catch (error) {
             throw error
         }
+}
+
+const deleteCollection = async(collectionId: number): Promise<void> => {
+    try {
+        const res = await fetch(`${BASE_URL}/${collectionId}`, {
+            method: 'DELETE',
+            headers: {
+              'Authorization': `Bearer ${tokenService.getToken()}`
+            }
+        })
+        console.log(res.json())
+        // return await res.json()
+    } catch (error) {
+        throw error
     }
+}
 
 export {
     addCollectionPhoto,
@@ -102,4 +117,5 @@ export {
     index,
     show,
     update,
+    deleteCollection as delete
 }
