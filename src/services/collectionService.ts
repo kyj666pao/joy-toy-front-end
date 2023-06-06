@@ -13,7 +13,6 @@ const addCollectionPhoto = async (
     photoData: PhotoFormData
     ): Promise<string> => {
         if (!photoData.photo) throw new Error("No photo found.")
-
         const imgData = new FormData()
         imgData.append('img', photoData.photo)
         try {
@@ -28,12 +27,11 @@ const addCollectionPhoto = async (
         } catch (error) {
             throw error
         }
-
 }
 
 const create = async( 
     collectionFormData: CollectionFormData, 
-    photoData: PhotoFormData
+    photoData?: PhotoFormData
     ): Promise<void> => {
         try {
             const res = await fetch(BASE_URL, {
@@ -45,11 +43,9 @@ const create = async(
                 body: JSON.stringify(collectionFormData)
             })
             const collection = await res.json()
-
-            if (photoData.photo) {
+            if (photoData?.photo) {
                 await addCollectionPhoto(collection.id , photoData)
             }
-
         } catch (error) {
             throw error
         }
@@ -77,8 +73,33 @@ const show = async(collectionId: string | undefined): Promise<Collection> => {
     }
 }
 
+const update = async( 
+    collectionId: number,
+    collectionFormData: CollectionFormData, 
+    photoData?: PhotoFormData,
+    ): Promise<void> => {
+        try {
+            const res = await fetch(`${BASE_URL}/${collectionId}`, {
+                method: 'PUT',
+                headers: {
+                    'Authorization': `Bearer ${tokenService.getToken()}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(collectionFormData),
+            })
+            const collection = await res.json()
+            if (photoData?.photo) {
+                await addCollectionPhoto(collection.id , photoData)
+            }
+        } catch (error) {
+            throw error
+        }
+    }
+
 export {
+    addCollectionPhoto,
     create,
     index,
     show,
+    update,
 }

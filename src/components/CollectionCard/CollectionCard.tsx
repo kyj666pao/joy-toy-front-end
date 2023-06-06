@@ -28,9 +28,11 @@ const CollectionCard = (props: CollectionProps) => {
         </div>
         { user?.profile.id == collection.profileId && 
           <div className="userThings">
-            <Link to={`/collections/${collection.id}/edit`} state={collection}>
-              <div className="edit">Edit</div>
-            </Link>
+            <div className="edit">
+              <Link to={`/collections/${collection.id}/edit`} state={collection}>
+              Edit
+              </Link>
+            </div>
             <button>delete</button>
           </div>
         }
