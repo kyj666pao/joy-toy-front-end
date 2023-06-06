@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 // css
 import styles from './CreateForm.module.css'
@@ -31,15 +31,17 @@ const CreateForm = (props: CreateFromPorps) => {
     const [photoData, setPhotoData] = useState<PhotoFormData>({ photo: null })
     const [isSubmitted, setIsSubmitted] = useState(false)
     const [message, setMessage] = useState('')
+    const [imgPreview, setImgPreview] = useState<string |null>(null);
 
     const handleChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
       setFormData({ ...formData, [evt.target.name]: evt.target.value })
     }
 
-    
     const handleChangePhoto = (evt: React.ChangeEvent<HTMLInputElement>) => {
       if (!evt.target.files) return
       const file = evt.target.files[0]
+      console.log(file)
+      console.log(evt.target)
       let isFileInvalid = false
       let errMsg = ""
       const validFormats = ['gif', 'jpeg', 'jpg', 'png', 'svg', 'webp']
@@ -52,16 +54,26 @@ const CreateForm = (props: CreateFromPorps) => {
         errMsg = "Image must be in gif, jpeg/jpg, png, svg, or webp format"
         isFileInvalid = true
       }
-      
       setMessage(errMsg)
-      
+
       if (isFileInvalid && imgInputRef.current) {
         imgInputRef.current.value = ""
         return
       }
-  
+
       setPhotoData({ photo: evt.target.files[0] })
+
+      const reader = new FileReader()
+      reader.readAsDataURL(evt.target.files[0])
+      reader.onload = () => {
+        const imgTempDir = reader.result as string
+        setImgPreview(imgTempDir)
+      }
     }
+
+    useEffect(() => {
+      console.log(photoData)
+    }, [photoData]);
 
     const {
       title,
@@ -99,6 +111,7 @@ const CreateForm = (props: CreateFromPorps) => {
                 <input type="text" name="title" value={title} onChange={handleChange} required/>
             </label>
 
+            { imgPreview && <img src={imgPreview} alt="" />}
             <label className={styles.label}>
               Upload Photo
               <input type="file" name="photo" onChange={handleChangePhoto} ref={imgInputRef}
