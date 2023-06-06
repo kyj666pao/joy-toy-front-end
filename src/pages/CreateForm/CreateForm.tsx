@@ -10,8 +10,6 @@ import * as collectionService from '../../services/collectionService'
 //types
 import { CollectionFormData, PhotoFormData } from '../../types/forms'
 
-import React from 'react'
-
 const CreateForm = () => {
     const navigate = useNavigate()
     const imgInputRef = useRef<HTMLInputElement | null>(null)

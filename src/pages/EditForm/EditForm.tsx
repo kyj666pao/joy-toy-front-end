@@ -8,11 +8,7 @@ import styles from './EditForm.module.css'
 import * as collectionService from '../../services/collectionService'
 
 //types
-import { CollectionFormData, PhotoFormData } from '../../types/forms'
-
-
-
-import React from 'react'
+import { PhotoFormData } from '../../types/forms'
 
 const EditForm = () => {
     const navigate = useNavigate()
@@ -22,9 +18,9 @@ const EditForm = () => {
     console.log("state",state)
     const [formData, setFormData] = useState(state)
 
-    useEffect(() => {
-        console.log("formData",formData)
-    }, [formData]);
+    // useEffect(() => {
+    //     console.log("formData",formData)
+    // }, [formData]);
 
     const [photoData, setPhotoData] = useState<PhotoFormData>({ photo: null })
     const [isSubmitted, setIsSubmitted] = useState(false)

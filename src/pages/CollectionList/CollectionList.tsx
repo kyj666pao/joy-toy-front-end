@@ -27,15 +27,15 @@ const CollectionList = (props: CollectionsProps) => {
         evt.preventDefault()
         try {
             await collectionService.delete(collectionId)
-            navigate('/collections', {state: collections} )
+            navigate('/collections' )
         } catch (error) {
             console.log(error)
         }
     }
 
-    useEffect(() => {
-        console.log(collections)
-    }, [collections]);
+    // useEffect(() => {
+    //     console.log(collections)
+    // }, [collections]);
 
   return (
     <main className={styles.container}>

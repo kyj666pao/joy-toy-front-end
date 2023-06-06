@@ -30,7 +30,6 @@ import { User, Profile, Collection } from './types/models'
 function App(): JSX.Element {
   const [user, setUser] = useState<User | null>(authService.getUser())
   const [collectionList, setCollectionList] = useState<Collection[]>([]);
-  // const [collectionListLength, setCollectionListLength] = useState(collectionList.length);
   const navigate = useNavigate()
   
   const handleLogout = (): void => {
@@ -42,12 +41,6 @@ function App(): JSX.Element {
   const handleAuthEvt = (): void => {
     setUser(authService.getUser())
   }
-
-  // const handleAddCollection = async (
-  //   collectionFormData: collectionFormData
-  //   ): Promise<void> => {
-  //     const newCollection = await collectionService.create(collectionFormData)
-  // }
 
   useEffect((): void => {
     const fetchAllCollection = async (): Promise<void> => {
