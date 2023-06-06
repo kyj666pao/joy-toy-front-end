@@ -10,7 +10,13 @@ import * as collectionService from '../../services/collectionService'
 //types
 import { CollectionFormData, PhotoFormData } from '../../types/forms'
 
-const CreateForm = () => {
+interface CreateFromPorps {
+  updated: number,
+  setUpdated: (value: number) => void
+}
+
+const CreateForm = (props: CreateFromPorps) => {
+    const { updated, setUpdated } = props
     const navigate = useNavigate()
     const imgInputRef = useRef<HTMLInputElement | null>(null)
 
@@ -72,6 +78,7 @@ const CreateForm = () => {
         try {
           setIsSubmitted(true)
           await collectionService.create(formData, photoData)
+          setUpdated(updated + 1)
           navigate('/collections')
         } catch (error) {
           console.log(error)

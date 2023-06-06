@@ -61,7 +61,10 @@ function App(): JSX.Element {
           path="/collections/new"
           element={
             <ProtectedRoute user={user}>
-              <CreateForm />
+              <CreateForm
+                updated={updated}
+                setUpdated={setUpdated}
+              />
             </ProtectedRoute>
           }
         />
@@ -69,7 +72,12 @@ function App(): JSX.Element {
           path="/collections"
           element={
             <ProtectedRoute user={user}>
-              <CollectionList collections={collectionList} user={user}/>
+              <CollectionList 
+                collections={collectionList} 
+                user={user}
+                updated={updated}
+                setUpdated={setUpdated}
+              />
             </ProtectedRoute>
           }
         />

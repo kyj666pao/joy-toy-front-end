@@ -27,7 +27,7 @@ const CollectionList = (props: CollectionsProps) => {
         evt.preventDefault()
         try {
             await collectionService.delete(collectionId)
-            navigate('/collections' )
+            navigate('/' )
         } catch (error) {
             console.log(error)
         }
