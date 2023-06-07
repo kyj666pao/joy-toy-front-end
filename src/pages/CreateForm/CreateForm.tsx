@@ -107,9 +107,7 @@ const CreateForm = (props: CreateFromPorps) => {
         <h2>Add Collection</h2>
         <p>{message}</p>
         <form autoComplete='off' onSubmit={handleSubmit} className={styles.form} >
-          <div className={styles.line}>
-            
-          </div>
+          
             <label className={styles.label} htmlFor="title">Title
                 <input type="text" name="title" value={title} onChange={handleChange} required/>
             </label>
