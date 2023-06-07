@@ -85,7 +85,7 @@ function App(): JSX.Element {
           path="/collections/:collectionId"
           element={
             <ProtectedRoute user={user}>
-              <CollectionDetail user={user} />
+              <CollectionDetail />
             </ProtectedRoute>
           }
         />
