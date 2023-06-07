@@ -8,6 +8,10 @@
     text-align: center;
 }
 
+.container ul {
+    list-style:disc
+}
+
 .img {
     width: 95%;
     height: fit-content;
@@ -21,5 +25,30 @@
 .userThings {
     align-self: flex-end;
     display: flex;
+    align-items: center;
     padding: 6px;
+}
+
+.userThings div {
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    margin-right: 1.5rem;
+    background-color: rgb(82, 71, 71);
+    border-top: 1px solid rgb(219, 151, 151);
+    border-left: 1px solid rgb(219, 151, 151);
+    border-bottom: 2px solid rgb(81, 25, 170);
+    border-right: 2px solid rgb(81, 25, 170);
+}
+
+.userThings button {
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    margin-right: 1.5rem;
+    font-size: 1rem;
+    background-color: rgb(82, 71, 71);
+    color: #ffc400;
+    border-top: 1px solid rgb(219, 151, 151);
+    border-left: 1px solid rgb(219, 151, 151);
+    border-bottom: 2px solid rgb(81, 25, 170);
+    border-right: 2px solid rgb(81, 25, 170);
 }

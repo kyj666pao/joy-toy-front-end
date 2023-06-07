@@ -25,16 +25,31 @@ const CollectionCard = (props: CollectionProps) => {
           <Link to={`/collections/${collection.id}`}>
             <h2>{collection.title}</h2>
           </Link>
-          <img className={styles.img} src={collection.img} alt="" />
+          { collection.img && <img className={styles.img} src={collection.img} alt="" /> }
+          <p>{collection.description}</p>
+          <div className={styles.content}>
+            <ul>
+              {collection.type && 
+                <li>Type: {collection.type}</li> }
+              {collection.category && 
+                <li>Category: {collection.category}</li>}
+              {collection.series && 
+                <li>Series: {collection.series}</li>}
+              {collection.brand && <li>Brand: {collection.brand}</li>}
+            </ul>
+            
+          </div>
+        
         </div>
         { user?.profile.id == collection.profileId && 
           <div className={styles.userThings}>
-            <div className="edit">
+            <div>
               <Link to={`/collections/${collection.id}/edit`} state={collection}>
               Edit
               </Link>
             </div>
-            <button onClick={(evt) => handleDeleteCollection(evt, collection.id)}>delete</button>
+            <button onClick={(evt) => handleDeleteCollection(evt, collection.id)}
+              >Delete</button>
           </div>
         }
         

@@ -6,3 +6,33 @@
     flex-direction: column;
     border: 2px solid red;
 }
+
+.container div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container h2 {
+    color: #ffc400;
+    text-align: center;
+}
+
+.container img {
+    width: 90%;
+}
+
+.container p {
+    margin: 1rem 2rem;
+}
+
+.container ul {
+    flex-direction: column;
+    align-self: flex-start;
+    list-style:disc
+}
+
+.container ul li {
+    align-self: flex-start;
+}
+

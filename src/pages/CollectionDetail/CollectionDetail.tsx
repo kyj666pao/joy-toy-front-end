@@ -37,7 +37,19 @@ const CollectionDetail = (props: CollectionProps) => {
         <div>
             <h2>{ collection.title }</h2>
             <img src={collection.img} alt="" />
-            <h4>{ collection.description }</h4>
+            <p>{collection.description}</p>
+            <div className={styles.content}>
+                <ul id='content-list'>
+                {collection.type && 
+                    <li>Type: {collection.type}</li> }
+                {collection.category && 
+                    <li>Category: {collection.category}</li>}
+                {collection.series && 
+                    <li>Series: {collection.series}</li>}
+                {collection.brand && <li>Brand: {collection.brand}</li>}
+                </ul>
+                
+            </div>
         </div>
         
         }

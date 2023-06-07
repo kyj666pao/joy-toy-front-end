@@ -31,10 +31,15 @@
 
 .button {
     width: fit-content;
-    padding: 4px 12px;
+    padding: 8px 16px;
     margin: 16px 0;
     border-radius: 10px;
     align-self: center;
     font-size: 1.5rem;
-    color: rgb(7, 7, 7);
+    background-color: rgb(82, 71, 71);
+    color: #ffc400;
+    border-top: 1px solid rgb(219, 151, 151);
+    border-left: 1px solid rgb(219, 151, 151);
+    border-bottom: 2px solid rgb(81, 25, 170);
+    border-right: 2px solid rgb(81, 25, 170);
 }

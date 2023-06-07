@@ -32,7 +32,7 @@ body {
 
 a,
 a:visited {
-  color: #ffc400
+  color: #ffc400;
 }
 
 nav > ul {
@@ -61,4 +61,8 @@ li {
 
 a {
   text-decoration: none;
+}
+
+#content-list {
+  align-self: flex-start;
 }
