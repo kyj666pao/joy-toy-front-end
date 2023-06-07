@@ -1,21 +1,16 @@
 import { useState, useEffect } from 'react'
-import { useParams, Link } from "react-router-dom"
+import { useParams } from "react-router-dom"
 
 //css
 import styles from './CollectionDetail.module.css'
 
 //types
-import { User, Collection } from '../../types/models'
+import { Collection } from '../../types/models'
 
 //service
 import * as collectionService from '../../services/collectionService'
 
-interface CollectionProps {
-    user: User | null
-}
-
-const CollectionDetail = (props: CollectionProps) => {
-    const { user } = props
+const CollectionDetail = () => {
     const { collectionId } = useParams<{collectionId?: string}>()
     const [collection, setCollection] = useState<Collection | null>(null);
     

@@ -1,5 +1,5 @@
-import { useState, useEffect, useRef } from 'react'
-import { Link, useNavigate, useLocation } from 'react-router-dom'
+import { useState, useRef } from 'react'
+import { useNavigate, useLocation } from 'react-router-dom'
 
 // css
 import styles from './EditForm.module.css'
