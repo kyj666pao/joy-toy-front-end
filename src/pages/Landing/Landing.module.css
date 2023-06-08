@@ -1,5 +1,22 @@
 .container {
+  height: 80vh;
   display: flex;
+  justify-content: space-around;
   align-items: center;
   flex-direction: column;
+}
+
+.imgContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.logo1 {
+  height: 300px;
+}
+
+.logo2 {
+  height: 270px;
 }

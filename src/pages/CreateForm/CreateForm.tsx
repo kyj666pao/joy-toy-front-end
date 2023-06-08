@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 // css
@@ -40,8 +40,6 @@ const CreateForm = (props: CreateFromPorps) => {
     const handleChangePhoto = (evt: React.ChangeEvent<HTMLInputElement>) => {
       if (!evt.target.files) return
       const file = evt.target.files[0]
-      console.log(file)
-      console.log(evt.target)
       let isFileInvalid = false
       let errMsg = ""
       const validFormats = ['gif', 'jpeg', 'jpg', 'png', 'svg', 'webp']
@@ -70,10 +68,6 @@ const CreateForm = (props: CreateFromPorps) => {
         setImgPreview(imgTempDir)
       }
     }
-
-    useEffect(() => {
-      console.log(photoData)
-    }, [photoData]);
 
     const {
       title,

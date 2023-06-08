@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useParams, useNavigate, useLocation } from "react-router-dom"
+import { useParams, useNavigate, useLocation, Link } from "react-router-dom"
 
 //css
 import styles from './ProfileDetail.module.css'
@@ -27,11 +27,9 @@ const ProfileDetail = (props: ProfileDetailProps) => {
     const { user, updated, setUpdated } = props
     const navigate = useNavigate()
     const { state } = useLocation()
-    console.log("state", state)
     const { id } = useParams<{id?: string}>()
     const [onesCollectionList, setOnesCollectionList] = useState<Collection[] | null>(null);
     const profile: Profile | null = state
-    console.log("profile",profile)
 
     const handleDeleteCollection = async(evt: React.MouseEvent, collectionId: number): Promise<void> => {
         evt.preventDefault()
@@ -61,6 +59,7 @@ const ProfileDetail = (props: ProfileDetailProps) => {
         <div className={styles.profileContainer}>
             <img src={profile?.photo || haroImg} alt={profile?.name} />
             <p>{profile?.name}</p>
+            <Link to="/auth/change-password">Change Password</Link>
         </div>
         <section className={styles.collectionContainer}>
             {onesCollectionList?.map((collection: Collection) => (

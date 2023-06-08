@@ -7,6 +7,7 @@ import { Profile } from '../../types/models'
 //replace photo
 const haroImg: string = '../../../public/assets/gundam_Haro.webp'
 
+
 interface ProfileCardProps {
     profile: Profile
 }

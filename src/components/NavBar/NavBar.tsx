@@ -7,6 +7,10 @@ import { User } from '../../types/models'
 //css
 import styles from './NavBar.module.css'
 
+//logo image
+const logo1: string = '../../../public/assets/Strike_Freedom.svg'
+const logo2: string = '../../../public/assets/Joy_Toy.svg'
+
 interface NavBarProps {
   user: User | null;
   handleLogout: () => void;
@@ -19,17 +23,15 @@ const NavBar = (props: NavBarProps): JSX.Element => {
     <nav className={styles.nav}>
       {user ?
         <ul>
-          <li className={styles.title}>Joy Toy</li>
-          {/* <li>Welcome, {user.name}</li> */}
+          <li><img src={logo1} alt="" /><img src={logo2} alt="" /></li>
           <li><NavLink to="/collections">Collections</NavLink></li>
           <li><NavLink to="/collections/new">Add Collections</NavLink></li>
           <li><NavLink to="/profiles">Profiles</NavLink></li>
           <li><NavLink to="" onClick={handleLogout}>LOG OUT</NavLink></li>
-          <li><NavLink to="/auth/change-password">Change Password</NavLink></li>
         </ul>
       :
         <ul>
-          <li className={styles.title}>Joy Toy</li>
+          <li><img src={logo1} alt="" /><img src={logo2} alt="" /></li>
           <li><NavLink to="/auth/login">Log In</NavLink></li>
           <li><NavLink to="/auth/signup">Sign Up</NavLink></li>
         </ul>

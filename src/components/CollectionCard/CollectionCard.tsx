@@ -17,7 +17,6 @@ interface CollectionProps {
 const CollectionCard = (props: CollectionProps) => {
     const { collection, user, handleDeleteCollection } = props
 
-    // console.log("id:",user?.profile.id, typeof user?.profile.id)
   return (
     
       <div className={styles.container}>

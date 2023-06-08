@@ -105,7 +105,6 @@ const deleteCollection = async(collectionId: number): Promise<void> => {
             }
         })
         console.log(res.json())
-        // return await res.json()
     } catch (error) {
         throw error
     }

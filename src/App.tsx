@@ -47,7 +47,6 @@ function App(): JSX.Element {
   useEffect((): void => {
     const fetchAllCollection = async (): Promise<void> => {
       const collectionData: Collection[] = await collectionService.index()
-      console.log(collectionData)
       setCollectionList(collectionData)
     }
     fetchAllCollection()

@@ -16,13 +16,11 @@ const CollectionDetail = () => {
     
 
     useEffect((): void => {
-        console.log(collectionId)
         const fetchCollection = async (): Promise<void> => {
             const data: Collection = await collectionService.show(collectionId)
             setCollection(data)
         }
         fetchCollection()
-        console.log(collection)
     }, [collectionId]);
     
 

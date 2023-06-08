@@ -21,7 +21,6 @@ const EditForm = (props: EditFromPorps) => {
     const imgInputRef = useRef<HTMLInputElement | null>(null)
 
     const { state } = useLocation()
-    console.log("state",state)
     const [formData, setFormData] = useState(state)
 
     const [photoData, setPhotoData] = useState<PhotoFormData>({ photo: null })
