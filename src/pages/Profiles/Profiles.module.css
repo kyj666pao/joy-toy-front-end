@@ -4,6 +4,10 @@
   flex-direction: column;
 }
 
-.container > p {
-  margin: 8px;
+.cardContainer {
+  width: 100vw;
+  margin: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }

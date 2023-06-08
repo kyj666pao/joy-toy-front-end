@@ -1,0 +1,44 @@
+.container {
+    width: 200px;
+    height: 240px;
+    margin: 16px;
+    padding: 16px 8px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border: 2px solid red;
+    text-align: center;
+    overflow: hidden;
+}
+
+.imgContainer {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    position: relative;
+}
+
+.container img {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.collectionCount {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: rgba(72, 102, 202, 0.767);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.collectionCount p {
+    color: bisque;
+    margin: 0;
+}

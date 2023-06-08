@@ -22,6 +22,7 @@ export interface Profile {
   id: number;
   createdAt: string;
   updatedAt: string;
+  collectionCount: number;
 }
 
 export interface User {

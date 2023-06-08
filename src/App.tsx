@@ -50,7 +50,7 @@ function App(): JSX.Element {
       setCollectionList(collectionData)
     }
     fetchAllCollection()
-  }, [updated]);
+  }, [updated, user]);
 
   return (
     <>
@@ -103,7 +103,7 @@ function App(): JSX.Element {
           path="/profiles"
           element={
             <ProtectedRoute user={user}>
-              <Profiles />
+              <Profiles collectionList={collectionList} />
             </ProtectedRoute>
           }
         />

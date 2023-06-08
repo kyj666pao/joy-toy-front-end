@@ -8,15 +8,31 @@ import * as profileService from '../../services/profileService'
 import styles from './Profiles.module.css'
 
 // types
-import { Profile } from '../../types/models'
+import { Profile, Collection } from '../../types/models'
 
-const Profiles = (): JSX.Element => {
+// component
+import ProfileCard from '../../components/ProfileCard/ProfileCard'
+
+interface ProfilesProps {
+  collectionList: Collection[]
+}
+
+const Profiles = (props: ProfilesProps): JSX.Element => {
+  const { collectionList } = props
   const [profiles, setProfiles] = useState<Profile[]>([])
 
   useEffect((): void => {
     const fetchProfiles = async (): Promise<void> => {
       try {
         const profileData: Profile[] = await profileService.getAllProfiles()
+        for (let i = 0; i < profileData.length; i++ ) {
+          profileData[i]["collectionCount"] = 0
+          for (let j = 0; j < collectionList.length; j++) {
+            if (collectionList[j]["profileId"] == profileData[i]["id"]) {
+              profileData[i]["collectionCount"] += 1
+            }
+          }
+        }
         setProfiles(profileData)
       } catch (error) {
         console.log(error)
@@ -31,10 +47,13 @@ const Profiles = (): JSX.Element => {
 
   return (
     <main className={styles.container}>
-      <h1>Hello. This is a list of all the profiles.</h1>
-      {profiles.map((profile: Profile) => (
-        <p key={profile.id}>{profile.name}</p>
-      ))}
+      <h1>Collector List</h1>
+      <div className={styles.cardContainer}>
+        {profiles.map((profile: Profile) => (
+          <ProfileCard key={profile.id} profile={profile} />
+        ))}
+      </div>
+      
     </main>
   )
 }
