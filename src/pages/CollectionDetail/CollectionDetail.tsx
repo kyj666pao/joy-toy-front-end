@@ -18,8 +18,8 @@ const CollectionDetail = () => {
     useEffect((): void => {
         console.log(collectionId)
         const fetchCollection = async (): Promise<void> => {
-            const Data: Collection = await collectionService.show(collectionId)
-            setCollection(Data)
+            const data: Collection = await collectionService.show(collectionId)
+            setCollection(data)
         }
         fetchCollection()
         console.log(collection)

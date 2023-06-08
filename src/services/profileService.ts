@@ -3,7 +3,7 @@ import * as tokenService from './tokenService'
 
 // types
 import { PhotoFormData } from '../types/forms'
-import { Profile } from '../types/models'
+import { Profile, Collection } from '../types/models'
 
 const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/api/profiles`
 
@@ -34,4 +34,15 @@ async function addPhoto(photoData: PhotoFormData): Promise<string> {
   return await res.json() as string
 }
 
-export { getAllProfiles, addPhoto }
+const show = async(id: string | undefined): Promise<Collection[]> => {
+  try {
+      const res = await fetch(`${BASE_URL}/${id}`, {
+          headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
+      })
+      return await res.json() as Collection[]
+  } catch (error) {
+      throw error
+  }
+}
+
+export { getAllProfiles, addPhoto, show }

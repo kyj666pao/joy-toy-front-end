@@ -7,6 +7,7 @@ import Signup from './pages/Signup/Signup'
 import Login from './pages/Login/Login'
 import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
+import ProfileDetail from './pages/ProfileDetail/ProfileDetail'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import CollectionList from './pages/CollectionList/CollectionList'
 import CollectionDetail from './pages/CollectionDetail/CollectionDetail'
@@ -104,6 +105,17 @@ function App(): JSX.Element {
           element={
             <ProtectedRoute user={user}>
               <Profiles collectionList={collectionList} />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/profiles/:id"
+          element={
+            <ProtectedRoute user={user}>
+              <ProfileDetail
+                user={user}
+                updated={updated}
+                setUpdated={setUpdated} />
             </ProtectedRoute>
           }
         />
