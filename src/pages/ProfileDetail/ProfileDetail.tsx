@@ -14,6 +14,9 @@ import { User, Profile, Collection } from '../../types/models'
 //components
 import CollectionCard from '../../components/CollectionCard/CollectionCard'
 
+//replace photo
+const haroImg: string = '../../../public/assets/gundam_Haro.webp'
+
 interface ProfileDetailProps {
     user: User | null,
     updated: number,
@@ -55,7 +58,12 @@ const ProfileDetail = (props: ProfileDetailProps) => {
 
   return (
     <main className={styles.container}>
-        {onesCollectionList?.map((collection: Collection) => (
+        <div className={styles.profileContainer}>
+            <img src={profile?.photo || haroImg} alt={profile?.name} />
+            <p>{profile?.name}</p>
+        </div>
+        <section className={styles.collectionContainer}>
+            {onesCollectionList?.map((collection: Collection) => (
             <CollectionCard 
                 key={collection.id}
                 collection={collection}
@@ -63,6 +71,8 @@ const ProfileDetail = (props: ProfileDetailProps) => {
                 handleDeleteCollection={handleDeleteCollection}
             />
         ))}
+        </section>
+        
     </main>
   )
 }
