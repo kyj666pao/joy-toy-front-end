@@ -12,7 +12,7 @@ Welcome to Joy Toy! it's an app to share your treasure collections or toys and t
 
 Do you have any toys or collections that are rare to find or out of production, or do you have experience spending a few day building or assembling a model kit, sharing them, and making others recall their childhood of these animate and cartoon.
 
-Not only children can play with toys, but adults can also enjoy the time playing with toys. Do you remember those days of laughter. It's time to find some toys and it's time to use Joy Toy.
+Not only children can play with toys, but adults can also enjoy the time playing with toys. Do you remember those days of laughter? It's time to find some toys and it's time to use Joy Toy.
 
 ## [Link to Joy Toy Back-end repo](https://github.com/kyj666pao/joy-toy-back-end)
 
@@ -40,10 +40,10 @@ Not only children can play with toys, but adults can also enjoy the time playing
 ## Ice Box
 - [ ] Allow users to build an album for collections and slideshow the photo
 - [ ] Allow users to save other users' collections
-- [ ] Allow users to subscribe other users
+- [ ] Allow users to subscribe to other users
 - [ ] Implement responsive design for mobile users
 - [ ] Implement advanced filter searching
-- [ ] Implement search the collection online and compare the price
+- [ ] Implement a search of toys online and compare the price
 
 
 
