@@ -8,8 +8,8 @@ import { User } from '../../types/models'
 import styles from './NavBar.module.css'
 
 //logo image
-const logo1: string = '../../../public/assets/Strike_Freedom.svg'
-const logo2: string = '../../../public/assets/Joy_Toy.svg'
+import logo1 from '../../../public/assets/Strike_Freedom.svg'
+import logo2 from '../../../public/assets/Joy_Toy.svg'
 
 interface NavBarProps {
   user: User | null;

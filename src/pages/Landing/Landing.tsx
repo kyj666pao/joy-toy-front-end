@@ -5,8 +5,8 @@ import styles from './Landing.module.css'
 import { User } from '../../types/models'
 
 //logo image
-const logo1: string = '../../../public/assets/Strike_Freedom.svg'
-const logo2: string = '../../../public/assets/Joy_Toy.svg'
+import logo1 from '../../../public/assets/Strike_Freedom.svg'
+import logo2 from '../../../public/assets/Joy_Toy.svg'
 
 interface LandingProps {
   user: User | null;

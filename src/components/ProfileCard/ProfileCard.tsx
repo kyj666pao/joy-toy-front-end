@@ -5,7 +5,7 @@ import styles from './ProfileCard.module.css'
 import { Profile } from '../../types/models'
 
 //replace photo
-const haroImg: string = '../../../public/assets/gundam_Haro.webp'
+import haroImg from '../../../public/assets/gundam_Haro.webp'
 
 
 interface ProfileCardProps {
