@@ -59,7 +59,9 @@ const ProfileDetail = (props: ProfileDetailProps) => {
         <div className={styles.profileContainer}>
             <img src={profile?.photo || haroImg} alt={profile?.name} />
             <p>{profile?.name}</p>
-            <Link to="/auth/change-password">Change Password</Link>
+            { user?.profile.id == profile?.id && 
+            <Link to="/auth/change-password">Change Password</Link>}
+            
         </div>
         <section className={styles.collectionContainer}>
             {onesCollectionList?.map((collection: Collection) => (
