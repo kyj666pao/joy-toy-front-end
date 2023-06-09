@@ -14,6 +14,8 @@ import { Profile, Collection } from '../../types/models'
 // component
 import ProfileCard from '../../components/ProfileCard/ProfileCard'
 
+import logo1 from '../../../public/assets/Strike_Freedom.svg'
+
 interface ProfilesProps {
   collectionList: Collection[]
 }
@@ -48,6 +50,7 @@ const Profiles = (props: ProfilesProps): JSX.Element => {
 
   return (
     <main className={styles.container}>
+      <img className={styles.background} src={logo1} alt="" />
       <h1>Collector List</h1>
       
       <div className={styles.cardContainer}>

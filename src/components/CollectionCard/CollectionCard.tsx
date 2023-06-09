@@ -20,7 +20,7 @@ const CollectionCard = (props: CollectionProps) => {
   return (
     
       <div className={styles.container}>
-        <div className="card">
+        <div className={styles.card}>
           <Link to={`/collections/${collection.id}`}>
             <h2>{collection.title}</h2>
           </Link>

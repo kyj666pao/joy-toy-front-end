@@ -12,6 +12,8 @@ import CollectionCard from '../../components/CollectionCard/CollectionCard'
 // services
 import * as collectionService from '../../services/collectionService'
 
+import logo1 from '../../../public/assets/Strike_Freedom.svg'
+
 
 interface CollectionsProps {
     collections: Collection[]
@@ -39,6 +41,7 @@ const CollectionList = (props: CollectionsProps) => {
 
   return (
     <main className={styles.container}>
+        <img className={styles.background} src={logo1} alt="" />
         {collections.map((collection: Collection) => (
             <CollectionCard 
                 key={collection.id}

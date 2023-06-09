@@ -9,6 +9,7 @@
     border: 2px solid red;
     text-align: center;
     overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.801);
 }
 
 .imgContainer {
