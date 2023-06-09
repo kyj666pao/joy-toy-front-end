@@ -1,75 +1,52 @@
-# Decoupled PERN Stack with JWT Auth Template - Front End
+# Joy Toy
 
-This is the front end of a decoupled PERN Stack app that includes JWT Authentication.
+## Joy Toy screenshot
 
-When combined with the back end found [here](https://github.com/SEI-Remote/decoupled-pern-jwt-auth-template-back-end-cjs), you'll have all you need to build a full stack PERN app!
+![Joy Toy screenshot]()
 
-Use this to go build things! 🚀
+## [Share your Toy Collection here](https://joy-toy.netlify.app/)
 
-## To Use This Template
+What is Joy Toy?
 
-**Replace `<name-of-your-app-here>`, including the `<` and `>` in the commands below with the name of your app!**
+Welcome to Joy Toy! it's an app to share your treasure collections or toys and the stories of how they brightened your childhood and created beautiful memories. 
 
-```bash
-git clone https://github.com/SEI-Remote/decoupled-pern-jwt-auth-template-front-end-ts <name-of-your-app-here>-front-end
-cd <name-of-your-app-here>-front-end
-code .
-```
+Do you have any toys or collections that are rare to find or out of production, or do you have experience spending a few day building or assembling a model kit, sharing them, and making others recall their childhood of these animate and cartoon.
 
-With the project open in VS Code, open a terminal and run:
+Not only children can play with toys, but adults can also enjoy the time playing with toys. Do you remember those days of laughter. It's time to find some toys and it's time to use Joy Toy.
 
-```bash
-rm -rf .git
-```
+## [Link to Joy Toy Back-end repo](https://github.com/kyj666pao/joy-toy-back-end)
 
-Here's what your command line output should like after this step (note that the indicator that we are in a git repository is gone!)
+## Technologies Used
+* TypeScript (Front-end)
+* Javascript (Back-end)
+* React.js
+* Node.js
+* Express.js
+* Sequelize
+* PostgresSQL
+* JWT authorization and authentication
+* HTML
+* CSS
+* Git
+* Github
+* Supabase
+* Cloudinary
+* Fly.io
+* Netlify
 
-<img src="https://i.imgur.com/L47kNOZ.png" alt="The command line before and after running the rm -rf .git command. Before git:(main) is visible indiating that the directory contains a git repository, after the command it is not.">
+## Attributions
+* [Haro Image](https://gundamonroblox.fandom.com/wiki/Haro?file=2014_NikeTube_Studios_Haro.png)
 
-Re-initialize a git repository:
+## Ice Box
+- [ ] Allow users to build an album for collections and slideshow the photo
+- [ ] Allow users to save other users' collections
+- [ ] Allow users to subscribe other users
+- [ ] Implement responsive design for mobile users
+- [ ] Implement advanced filter searching
+- [ ] Implement search the collection online and compare the price
 
-```bash
-git init
-```
 
-Create a repo for this project on GitHub and add that remote to your project with:
 
-```bash
-git remote add origin your-repo-URL-here
-```
 
-Run `npm i` to fetch the template's dependencies:
 
-```bash
-npm i
-```
 
-touch a `.env` file:
-
-```bash
-touch .env
-```
-
-Fill it with the following:
-
-```
-VITE_BACK_END_SERVER_URL=http://localhost:3001
-```
-
-> 🚨 DO NOT place secrets in this `.env` file. The contents of this file WILL be exposed to site visitors. We are only using the front-end .env to create variables specific to the environment the application is running in.
-
-Ensure the project starts up with:
-
-```bash
-npm run dev
-```
-
-Delete this README.md, then make an initial commit:
-
-```bash
-git add .
-git commit -m "initial commit"
-git push origin main
-```
-
-You're done!
