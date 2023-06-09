@@ -2,7 +2,7 @@
 
 ## Joy Toy screenshot
 
-![Joy Toy screenshot]()
+[![Screenshot-2023-06-09-023343.png](https://i.postimg.cc/d1XT8fn0/Screenshot-2023-06-09-023343.png)](https://postimg.cc/DJrZhB9V)
 
 ## [Share your Toy Collection here](https://joy-toy.netlify.app/)
 
