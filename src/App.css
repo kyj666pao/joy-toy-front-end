@@ -30,18 +30,18 @@ body {
   -webkit-text-size-adjust: 100%;
 }
 
-a,
-a:visited {
-  color: #ffc400;
+a {
+  color: #f0c740;
 }
 
 nav > ul {
   margin: 0;
-  padding: 16px 32px;
+  padding: 8px 20px;
 }
 
 nav {
   margin: 0;
+  margin-bottom: 16px;
   padding: 0;
   box-sizing: border-box;
   /* background-color: rgb(28, 9, 196); */

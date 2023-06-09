@@ -32,7 +32,7 @@ const CollectionDetail = () => {
             <img src={collection.img} alt="" />
             <p>{collection.description}</p>
             <div className={styles.content}>
-                <ul id='content-list'>
+                <ul className={styles.contentList}>
                 {collection.type && 
                     <li>Type: {collection.type}</li> }
                 {collection.category && 

@@ -36,3 +36,6 @@
     align-self: flex-start;
 }
 
+.content {
+    width: 80vw;
+}
