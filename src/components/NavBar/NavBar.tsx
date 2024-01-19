@@ -23,7 +23,7 @@ const NavBar = (props: NavBarProps): JSX.Element => {
     <nav className={styles.nav}>
       {user ?
         <ul>
-          <li><img src={logo1} alt="" /><img src={logo2} alt="" /></li>
+          <li><img src={logo1} alt="" /><img className={styles.logo2} src={logo2} alt="" /></li>
           <li><NavLink to="/collections">Collections</NavLink></li>
           <li><NavLink to="/collections/new">Add Collections</NavLink></li>
           <li><NavLink to="/profiles">Profiles</NavLink></li>
@@ -31,7 +31,7 @@ const NavBar = (props: NavBarProps): JSX.Element => {
         </ul>
       :
         <ul>
-          <li><img src={logo1} alt="" /><img src={logo2} alt="" /></li>
+          <li><img src={logo1} alt="" /><img className={styles.logo2} src={logo2} alt="" /></li>
           <li><NavLink to="/auth/login">Log In</NavLink></li>
           <li><NavLink to="/auth/signup">Sign Up</NavLink></li>
         </ul>
